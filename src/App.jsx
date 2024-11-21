@@ -31,7 +31,7 @@ function App() {
         <main className="max-w-7xl mx-auto px-4 py-8">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/admin" element={<Admin />} />
+            <Route path="/wr-admin" element={<Admin />} />
             <Route path="/review" element={<ReviewQuestions />} />
           </Routes>
         </main>

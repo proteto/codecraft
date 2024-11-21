@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { ref, onValue } from 'firebase/database';
 import { db } from '../firebase';
-import { Brain } from 'lucide-react';
+import { Brain, CheckCircle2 } from 'lucide-react';
 
 export function Home() {
   const [questions, setQuestions] = useState([]);
@@ -24,7 +24,7 @@ export function Home() {
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center min-h-[60vh]">
+      <div className="flex items-center justify-center min-h-[60vh] flex-wrap">
         <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-indigo-600"></div>
       </div>
     );
@@ -37,7 +37,7 @@ export function Home() {
         Today's Questions
       </h1>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {questions.map((question, index) => (
           <div
             key={question.id}
@@ -50,6 +50,13 @@ export function Home() {
                 </span>
               </div>
             </div>
+            {question.Y && (
+              <div className="absolute -top-3 -right-3">
+                <div className="w-10 h-10 bg-white rounded-lg shadow-[5px_5px_15px_#d1d1d1,-5px_-5px_15px_#ffffff] flex items-center justify-center">
+                  <CheckCircle2 className="h-5 w-5 text-green-500" />
+                </div>
+              </div>
+            )}
             <div className="mb-4">
               <div
                 className="prose max-w-none"

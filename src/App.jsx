@@ -27,7 +27,6 @@ function App() {
                   to="/wr-admin"
                   className="text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium flex items-center gap-2"
                 >
-                  <AddIcon className="h-4 w-4" />
                   Add
                 </Link>
                 <Link

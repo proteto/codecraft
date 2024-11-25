@@ -37,7 +37,7 @@ export function Home() {
         Today's Questions
       </h1>
       
-      <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-8">
         {questions.map((question, index) => (
           <div
             key={question.id}

@@ -29,10 +29,19 @@ export function Home() {
       card.style.maxHeight = '50px';
       card.style.overflow = 'hidden'; // Hide the content that overflows
 
-      // Add click event listener to remove max-height
-      card.addEventListener('click', () => {
-        card.style.maxHeight = 'none';
-        card.style.overflow = 'visible'; // Allow the content to overflow when max-height is removed
+      // Find the number element inside each card
+      const numberElement = card.querySelector('.card-number');
+      
+      // Add click event listener to the number element to toggle max-height
+      numberElement.addEventListener('click', () => {
+        // Toggle max-height between 50px and 'none'
+        if (card.style.maxHeight === '50px') {
+          card.style.maxHeight = 'none';
+          card.style.overflow = 'visible'; // Allow the content to overflow when max-height is removed
+        } else {
+          card.style.maxHeight = '50px';
+          card.style.overflow = 'hidden'; // Hide overflow again
+        }
       });
     });
   }, [questions]);
@@ -60,7 +69,7 @@ export function Home() {
           >
             <div className="absolute -top-3 -left-3">
               <div className="w-10 h-10 bg-white rounded-lg shadow-[5px_5px_15px_#d1d1d1,-5px_-5px_15px_#ffffff] flex items-center justify-center">
-                <span className="text-lg font-bold bg-gradient-to-br from-indigo-600 to-indigo-800 text-transparent bg-clip-text">
+                <span className="card-number text-lg font-bold bg-gradient-to-br from-indigo-600 to-indigo-800 text-transparent bg-clip-text">
                   {index + 1}
                 </span>
               </div>

@@ -22,6 +22,21 @@ export function Home() {
     });
   }, []);
 
+  useEffect(() => {
+    // Set initial max-height to 50px for each card
+    const cards = document.querySelectorAll('.question-card');
+    cards.forEach((card) => {
+      card.style.maxHeight = '50px';
+      card.style.overflow = 'hidden'; // Hide the content that overflows
+
+      // Add click event listener to remove max-height
+      card.addEventListener('click', () => {
+        card.style.maxHeight = 'none';
+        card.style.overflow = 'visible'; // Allow the content to overflow when max-height is removed
+      });
+    });
+  }, [questions]);
+
   if (loading) {
     return (
       <div className="flex items-center justify-center min-h-[60vh] flex-wrap">
@@ -37,11 +52,11 @@ export function Home() {
         Today's Questions
       </h1>
       
-      <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="w-full grid grid-cols-1 gap-8" id='card'>
         {questions.map((question, index) => (
           <div
             key={question.id}
-            className="bg-white rounded-xl p-6 shadow-[5px_5px_15px_#d1d1d1,-5px_-5px_15px_#ffffff] relative"
+            className="question-card bg-white rounded-xl p-6 shadow-[5px_5px_15px_#d1d1d1,-5px_-5px_15px_#ffffff] relative"
           >
             <div className="absolute -top-3 -left-3">
               <div className="w-10 h-10 bg-white rounded-lg shadow-[5px_5px_15px_#d1d1d1,-5px_-5px_15px_#ffffff] flex items-center justify-center">

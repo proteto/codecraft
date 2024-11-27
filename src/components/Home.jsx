@@ -67,15 +67,15 @@ export function Home() {
             key={question.id}
             className="question-card bg-white rounded-xl p-6 shadow-[5px_5px_15px_#d1d1d1,-5px_-5px_15px_#ffffff] relative"
           >
-            <div className="absolute -top-3 -left-3">
-              <div className="w-10 h-10 bg-white rounded-lg shadow-[5px_5px_15px_#d1d1d1,-5px_-5px_15px_#ffffff] flex items-center justify-center">
-                <span className="card-number text-lg font-bold bg-gradient-to-br from-indigo-600 to-indigo-800 text-transparent bg-clip-text">
+            <div className="absolute top-0 left-0">
+              <div className="card-number cursor-pointer w-10 h-10 bg-white rounded-lg shadow-[5px_5px_15px_#d1d1d1,-5px_-5px_15px_#ffffff] flex items-center justify-center">
+                <span className="text-lg font-bold bg-gradient-to-br from-indigo-600 to-indigo-800 text-transparent bg-clip-text">
                   {index + 1}
                 </span>
               </div>
             </div>
             {question.Y && (
-              <div className="absolute -top-3 -right-3">
+              <div className="absolute top-0 right-0">
                 <div className="w-10 h-10 bg-white rounded-lg shadow-[5px_5px_15px_#d1d1d1,-5px_-5px_15px_#ffffff] flex items-center justify-center">
                   <CheckCircle2 className="h-5 w-5 text-green-500" />
                 </div>
